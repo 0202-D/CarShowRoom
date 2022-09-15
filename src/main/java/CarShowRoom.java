@@ -23,8 +23,9 @@ public class CarShowRoom {
     }
 
     public synchronized void buyAuto() {
+        System.out.println(Thread.currentThread().getName() + " came to the salon");
         while (list.isEmpty()){
-            System.out.println(Thread.currentThread().getName() + " came to the salon - no cars");
+            System.out.println( " No cars");
             try {
                 wait();
             } catch (InterruptedException e) {
