@@ -10,7 +10,7 @@ public class CarShowRoom {
     private int timeToCreateAuto = 3000;
     private int timeToBuy = 2000;
     private int firstCarToSell = 0;
-    public synchronized void releaseAuto() {
+    public  void releaseAuto() {
         try {
             Thread.sleep(timeToCreateAuto);
         } catch (InterruptedException e) {
@@ -19,7 +19,8 @@ public class CarShowRoom {
         System.out.println("Toyota release auto");
         list.add(new Car());
         System.out.println(list.size() + " car in storage");
-        notify();
+        synchronized (this){
+        notify();}
     }
 
     public synchronized void buyAuto() {
